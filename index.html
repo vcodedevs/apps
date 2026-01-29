@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Water Reminder App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #f3f3f3;
+    }
+
+    .container {
+      width: 350px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 70%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .intake button {
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    #goalStatus, #tracker {
+      font-size: 18px;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    #status {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #888;
+    }
+
+    .progress-container {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 10px;
+    }
+
+    .progress-bar {
+      height: 20px;
+      width: 0;
+      background-color: #4CAF50;
+      border-radius: 10px;
+    }
+
+    .toggle-dark-mode {
+      margin-top: 20px;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .toggle-dark-mode:hover {
+      background-color: #555;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced Water Reminder</h1>
+
+    <!-- Goal Setting -->
+    <div class="goal-container">
+      <p>Set your daily water goal (in liters):</p>
+      <input type="number" id="goalInput" placeholder="e.g. 2" min="0.1" step="0.1">
+      <button onclick="setGoal()">Set Goal</button>
+    </div>
+
+    <!-- Tracker -->
+    <p id="goalStatus">Goal: 0 L</p>
+    <p id="tracker">Consumed: 0 L</p>
+
+    <!-- Water Intake Buttons -->
+    <div class="intake">
+      <p>Add Water Intake (in liters):</p>
+      <button onclick="addWater(0.1)">+ 0.1 L</button>
+      <button onclick="addWater(0.2)">+ 0.2 L</button>
+      <button onclick="addWater(0.5)">+ 0.5 L</button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <!-- Notification Interval -->
+    <div class="interval-container">
+      <p>Set your reminder interval (in minutes):</p>
+      <input type="number" id="intervalInput" placeholder="e.g. 60" min="10" step="10">
+      <button onclick="startReminder()">Start Reminder</button>
+    </div>
+
+    <!-- Reset Button -->
+    <button onclick="resetProgress()">Reset Progress</button>
+
+    <!-- Toggle Dark Mode -->
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <p id="status"></p>
+  </div>
+
+<script>
+  let goal = 0; // Goal in liters
+  let consumed = 0; // Water consumed in liters
+  let reminderInterval = 60; // Default reminder interval (minutes)
+  let intervalId = null;
+
+  // Request notification permission
+  function requestNotificationPermission() {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then(permission => {
+        if (permission !== "granted") {
+          alert("Notifications are blocked. Please enable them to get reminders.");
+        }
+      });
+    }
+  }
+
+  // Show notification
+  function showNotification() {
+    if (Notification.permission === "granted") {
+      const notification = new Notification("Drink water! Stay hydrated!");
+      playSound();
+    }
+  }
+
+  // Play sound when the reminder is triggered
+  function playSound() {
+    const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+    audio.play();
+  }
+
+  // Set daily water goal
+  function setGoal() {
+    const goalInput = document.getElementById('goalInput').value;
+    if (goalInput && parseFloat(goalInput) > 0) {
+      goal = parseFloat(goalInput);
+      document.getElementById('goalStatus').textContent = `Goal: ${goal} L`;
+      document.getElementById('tracker').textContent = `Consumed: 0 L`;
+      updateProgressBar();
+    } else {
+      alert("Please enter a valid goal.");
+    }
+  }
+
+  // Add water to consumption
+  function addWater(amount) {
+    consumed += amount;
+    if (consumed > goal) consumed = goal; // Don't exceed goal
+    document.getElementById('tracker').textContent = `Consumed: ${consumed} L`;
+    updateProgressBar();
+
+    // Check if goal is reached
+    if (consumed === goal) {
+      alert("Congratulations! You've reached your water goal for the day!");
+    }
+  }
+
+  // Update progress bar
+  function updateProgressBar() {
+    const progressBar = document.getElementById('progressBar');
+    const progressPercentage = (consumed / goal) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  }
+
+  // Start reminder with user-set interval
+  function startReminder() {
+    const intervalInput = document.getElementById('intervalInput').value;
+    if (intervalInput && parseInt(intervalInput) > 0) {
+      reminderInterval = parseInt(intervalInput);
+      const statusElement = document.getElementById('status');
+      statusElement.innerHTML = `Reminder set! You will be notified every ${reminderInterval} minutes.`;
+
+      // Request permission to show notifications
+      requestNotificationPermission();
+
+      // Clear previous intervals if any
+      if (intervalId) clearInterval(intervalId);
+
+      // Notify every X minutes
+      intervalId = setInterval(() => {
+        showNotification();
+      }, reminderInterval * 60000); // Convert minutes to milliseconds
+    } else {
+      alert("Please enter a valid interval.");
+    }
+  }
+
+  // Reset progress at the end of the day or anytime
+  function resetProgress() {
+    consumed = 0;
+    document.getElementById('tracker').textContent = `Consumed: 0 L`;
+    updateProgressBar();
+  }
+
+  // Toggle dark mode
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+</body>
+</html>
