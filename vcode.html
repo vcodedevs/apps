@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vCode Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Back to top button functionality
+    window.onscroll = function() {showButton()};
+
+    function showButton() {
+      const btn = document.getElementById("back-to-top");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #111;
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
+    body.dark {
+      background: #1f2937;
+      color: #f4f6f8;
+    }
+    header {
+      background: #1E3A8A;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .links a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 2s forwards 1s;
+    }
+    .links a i {
+      margin-right: 0.5rem;
+    }
+    .dark-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      color: #1E3A8A;
+      border: none;
+      border-radius: 1rem;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .project {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    body.dark .project {
+      background: #374151;
+    }
+    .project img {
+      width: 60px;
+      height: 60px;
+      border-radius: 0.5rem;
+      float: left;
+      margin-right: 1rem;
+    }
+    .project h3 { margin: 0.5rem 0 0; }
+    .project p { margin: 0.25rem 0 0.5rem; color: #444; }
+    body.dark .project p {
+      color: #ddd;
+    }
+    .tags span {
+      background: #10B981;
+      color: white;
+      padding: 0.3rem 0.6rem;
+      margin: 0.2rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      display: inline-block;
+    }
+    .btn {
+      background: #1E3A8A;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #3b82f6;
+    }
+    footer {
+      background: #1E3A8A;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1E3A8A;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 1.5rem;
+    }
+    #back-to-top:hover {
+      background-color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <img src="https://play-lh.googleusercontent.com/p40O1kxwnY0bMrnOxtYzdm4R2CAFi9bNXp6QTztK3b36pryFUgK4DkHsELjHJ_A45NQ=s188" alt="Profile" />
+    <h1>vCode</h1>
+    <p><b>We are vCode! Android Developer</b></p>
+    <p>Here are some of our projects.</p>
+    <div class="links">
+      <a href="https://play.google.com/store/apps/dev?id=8886568978418472821" target="_blank">
+        <i class="fab fa-google-play"></i> PlayStore
+      </a>
+      <a href="https://tiktok.com/@vcode.devs" target="_blank">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="project">
+      <img src="https://play-lh.googleusercontent.com/SU4QDaI0ywtzEK2Geyj0bgBMG1raoeqFpywottXBivvFK_pMq_4ZR5vF-7deIfyVmw=s512" alt="Österreich Radio">
+      <h3>Österreich Radio</h3>
+      <p>Stream your favorite Austrian radio stations easily.</p>
+      <div class="tags">
+        <span>Streaming</span><span>Radio</span><span>MediaPlayer</span>
+      </div>
+      <button class="btn" onclick="window.open('https://play.google.com/store/apps/details?id=com.vcode.osterreichradio')">View App</button>
+    </div>
+
+    <div class="project">
+      <img src="https://play-lh.googleusercontent.com/AzgaYhtFTFtaXlIDY4hNC3PoN_xC7oYuouVoXhmIQxcDcj2dAqXnp_BO16g-W9qyQ_Y=s512" alt="Fancy Text">
+      <h3>Fancy Text</h3>
+      <p>Stylize your messages with cool text fonts and symbols.</p>
+      <div class="tags">
+        <span>UI</span><span>Social</span><span>Text Tools</span>
+      </div>
+      <button class="btn" onclick="window.open('https://play.google.com/store/apps/details?id=com.vcode.fancytext')">View App</button>
+    </div>
+
+    <div class="project">
+      <img src="https://play-lh.googleusercontent.com/WdfaMfm5ui1W4ug2iCKyiJC_6qV3BeNJC3NrDVx5Kk0IpAsRfo2YO_lrpKKDAwp1JHZu=s512" alt="Radio Mergimi">
+      <h3>Radio Mergimi</h3>
+      <p>Albanian-language radio station app for the diaspora.</p>
+      <div class="tags">
+        <span>Radio</span><span>Albanian</span><span>Media</span>
+      </div>
+      <button class="btn" onclick="window.open('https://play.google.com/store/apps/details?id=com.vcode.radiomergimi')">View App</button>
+    </div>
+
+    <div class="project">
+      <img src="https://play-lh.googleusercontent.com/FcTizny9gxJSoCQC-xP75Lp0t_RHtIWk4ANlEi6NZaurdQjQGa2ZTDJfl56RR7-xtQ=s512" alt="99 Names of Allah">
+      <h3>99 Names of Allah</h3>
+      <p>An Islamic app displaying and explaining the 99 names of Allah.</p>
+      <div class="tags">
+        <span>Islamic</span><span>Education</span><span>Arabic</span>
+      </div>
+      <button class="btn" onclick="window.open('https://play.google.com/store/apps/details?id=com.vcode.namesofallah')">View App</button>
+    </div>
+    
+        <div class="project">
+      <img src="https://play-lh.googleusercontent.com/q16AxQUcEWfgpypRa2u4edpw8NiW5O8_EBFXT1qKU1WVAQfLilVCZDm69S9wXUaxpGU=s512" alt="Udhezues i Shtatzenise">
+      <h3>Udhezues i Shtatzenise</h3>
+      <p>An app displaying useful informations about tracking pregnancy.</p>
+      <div class="tags">
+        <span>Pregnancy</span><span>Education</span><span>Albanian</span>
+      </div>
+      <button class="btn" onclick="window.open('https://play.google.com/store/apps/details?id=com.vcode.shtatzenia')">View App</button>
+    </div>
+    
+    
+
+    <!-- Contact Section -->
+    <div class="container" style="text-align: center; margin-top: 2rem;">
+      <h2>Get in Touch</h2>
+      <p>If you're interested in working together or have any questions, feel free to reach out.</p>
+      <a href="mailto:vcode.devs@gmail.com" class="btn">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+    </div>
+
+
+    <!-- Skills Section -->
+    <center><div style="margin-top: 2rem;">
+      <h2>Skills</h2>
+      <p>Technologies and tools I use regularly:</p>
+      <div class="tags">
+        <span>Java</span>
+        <span>Kotlin</span>
+        <span>XML</span>
+        <span>Android Studio</span>
+        <span>Firebase</span>
+        <span>UI/UX</span>
+      </div>
+    </div></center>
+  </div>
+
+  <footer>
+    &copy; 2025 vCode
+  </footer>
+</body>
+</html>
