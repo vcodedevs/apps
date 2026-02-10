@@ -11,7 +11,7 @@
     <style>
         :root {
             --primary: #10b981;
-            --bg: #f9fafb;
+            --bg: #f0f2f5;
             --card: #ffffff;
             --text: #111827;
             --header-h: 70px;
@@ -67,7 +67,7 @@
 
         /* Chat Layout */
         .chat-container {
-            position: absolute; top: var(--header-h); bottom: var(--nav-h);
+            position: fixed; top: var(--header-h); bottom: var(--nav-h);
             left: 0; right: 0; overflow-y: auto; padding: 20px;
             display: flex; flex-direction: column; gap: 14px;
             -webkit-overflow-scrolling: touch;
@@ -105,8 +105,8 @@
 
         /* Input Bar */
         .input-bar {
-            position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h);
-            background: var(--card); padding: 10px 15px; display: flex; align-items: center; gap: 10px;
+            position: absolute; bottom: 0; left: 0; right: 0; height: var(--nav-h);
+            background: var(--card); padding: 5px 15px; display: flex; align-items: center; gap: 10px;
             border-top: 1px solid rgba(0,0,0,0.05); padding-bottom: env(safe-area-inset-bottom);
         }
         .input-field { flex: 1; height: 50px; border-radius: 25px; border: none; background: var(--bg); padding: 0 20px; color: var(--text); outline: none; }
