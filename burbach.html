@@ -45,7 +45,6 @@
             width: 100%;
         }
 
-        /* Robuste Container-Definition für alle Bildschirme */
         .container {
             width: 100%;
             max-width: 1280px;
@@ -150,41 +149,40 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 85px;
             transition: var(--transition);
         }
 
         @media (min-width: 992px) {
             .navbar {
-                height: 90px;
+                height: 95px;
             }
             header.scrolled .navbar {
                 height: 75px;
             }
         }
 
+        /* Custom Logo Styling */
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--secondary);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            text-decoration: none;
         }
 
-        @media (min-width: 576px) {
-            .logo {
-                font-size: 1.65rem;
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 992px) {
+            .logo img {
+                height: 60px;
             }
-        }
-
-        .logo i {
-            color: var(--primary);
-        }
-
-        .logo span {
-            color: var(--primary);
+            header.scrolled .logo img {
+                height: 48px;
+            }
         }
 
         .nav-links {
@@ -426,7 +424,7 @@
             }
         }
 
-        /* Leistungen-Bereich - Responsive Grid Fix */
+        /* Leistungen-Bereich */
         .services {
             background-color: var(--light);
         }
@@ -1052,17 +1050,11 @@
             gap: 1.5rem;
         }
 
-        .footer-logo {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-logo span {
-            color: var(--accent);
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1); /* Macht das Logo im dunklen Footer weiß/lesbar, falls gewünscht */
         }
 
         .footer-bottom {
@@ -1084,7 +1076,7 @@
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 80px;
+                top: 85px;
                 left: 0;
                 width: 100%;
                 background: var(--white);
@@ -1105,12 +1097,27 @@
 </head>
 <body>
 
-
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fas fa-map-marker-alt"></i> 56203 Höhr-Grenzhausen</span>
+                <span><i class="fas fa-clock"></i> Mo-Fr: 07:30 - 17:00 Uhr</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> +49 (0) 2624 000000</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container navbar">
-            <a href="#" class="logo"><i class="fas fa-tools"></i> Burbach <span>Haustechnik</span></a>
+            <!-- Ihr eigenes Logo einbinden (Speichern Sie die Bilddatei als logo.png im selben Ordner) -->
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Burbach Haustechnik Meisterbetrieb Logo">
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="#home" class="active">Startseite</a></li>
                 <li><a href="#services">Leistungen</a></li>
@@ -1418,7 +1425,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-tools"></i> Burbach <span>Haustechnik</span>
+                    <img src="logo.png" alt="Burbach Haustechnik Logo">
                 </div>
                 <div style="color: #94a3b8; font-size: 0.95rem;">
                     Ihr Fachbetrieb in 56203 Höhr-Grenzhausen
