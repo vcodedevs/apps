@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burbach Haustechnik | Sanitär, Heizung & Klima in Höhr-Grenzhausen</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #0f172a;
+            --accent: #0ea5e9;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--secondary);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+            border-color: var(--white);
+        }
+
+        /* Top Bar Info */
+        .top-bar {
+            background-color: var(--secondary);
+            color: var(--gray-light);
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-bar-info i {
+            color: var(--accent);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+            background-color: var(--white);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 992px) {
+            .navbar {
+                height: 95px;
+            }
+            header.scrolled .navbar {
+                height: 75px;
+            }
+        }
+
+        /* Custom Logo Styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 992px) {
+            .logo img {
+                height: 60px;
+            }
+            header.scrolled .logo img {
+                height: 48px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            background: none;
+            border: none;
+        }
+
+        /* Hero-Bereich */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 12rem 0 8rem;
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(2, 132, 199, 0.2);
+            color: var(--accent);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.35rem;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            max-width: 650px;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.25rem;
+            }
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Trust Bar */
+        .trust-bar-wrapper {
+            padding: 0 1rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .trust-bar-wrapper {
+                margin-top: -4rem;
+            }
+        }
+
+        .trust-bar {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .trust-bar {
+                padding: 3rem;
+            }
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-item i {
+            font-size: 1.75rem;
+            color: var(--primary);
+            background: var(--primary-light);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .trust-item i {
+                font-size: 2rem;
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        .trust-item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .trust-item p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Sektions-Styles */
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 7rem 0;
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header {
+                margin: 0 auto 4rem;
+            }
+        }
+
+        .section-header span {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header h2 {
+                font-size: 2.75rem;
+            }
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Leistungen-Bereich */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .service-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            background: var(--primary-light);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .service-icon {
+                font-size: 2.5rem;
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .service-card h3 {
+                font-size: 1.35rem;
+            }
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .service-card p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .service-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        @media (min-width: 768px) {
+            .service-list {
+                font-size: 0.9rem;
+            }
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .service-list i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        /* Über Uns-Bereich */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+            }
+        }
+
+        .about-text span {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .about-text h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-text p {
+                font-size: 1.05rem;
+            }
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (min-width: 576px) {
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .about-feature-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .about-image {
+            height: 320px;
+            border-radius: 16px;
+            background: url('https://images.unsplash.com/photo-1542013936693-84d49646e554?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .about-image {
+                height: 480px;
+                border-radius: 20px;
+            }
+        }
+
+        .experience-badge {
+            position: relative;
+            margin-top: -1.5rem;
+            margin-left: 1rem;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--white);
+            display: inline-block;
+            max-width: 220px;
+        }
+
+        @media (min-width: 768px) {
+            .experience-badge {
+                position: absolute;
+                bottom: -30px;
+                left: -30px;
+                margin-top: 0;
+                margin-left: 0;
+                padding: 1.75rem 2rem;
+                border-radius: 16px;
+                border: 4px solid var(--white);
+                max-width: none;
+            }
+        }
+
+        .experience-badge h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .experience-badge h4 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .experience-badge p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin: 0;
+        }
+
+        /* Bewertungen-Bereich */
+        .reviews {
+            background-color: var(--light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .review-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .stars {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .review-text {
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .review-text {
+                font-size: 1.05rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .reviewer-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .reviewer-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        @media (min-width: 768px) {
+            .reviewer-info h4 {
+                font-size: 1.05rem;
+            }
+        }
+
+        .reviewer-info span {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        @media (min-width: 768px) {
+            .reviewer-info span {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Kontakt-Bereich */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-light);
+            overflow: hidden;
+        }
+
+        @media (min-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr 1.2fr;
+                border-radius: 24px;
+            }
+        }
+
+        .contact-info-side {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info-side {
+                padding: 4rem;
+            }
+        }
+
+        .contact-info-side h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info-side h3 {
+                font-size: 2rem;
+            }
+        }
+
+        .contact-info-side p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-info-side p {
+                margin-bottom: 3rem;
+                font-size: 1rem;
+            }
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-details {
+                gap: 2rem;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-item {
+                gap: 1.25rem;
+            }
+        }
+
+        .contact-item i {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .contact-item i {
+                font-size: 1.5rem;
+            }
+        }
+
+        .contact-item h5 {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        @media (min-width: 768px) {
+            .contact-item h5 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .contact-item p {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        @media (min-width: 768px) {
+            .contact-item p {
+                font-size: 1.1rem;
+            }
+        }
+
+        .contact-form-side {
+            padding: 2rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-form-side {
+                padding: 4rem;
+            }
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-form {
+                gap: 1.5rem;
+            }
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 576px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--secondary);
+        }
+
+        @media (min-width: 768px) {
+            .form-group label {
+                font-size: 0.9rem;
+            }
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid var(--gray-light);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+            background-color: var(--light);
+        }
+
+        @media (min-width: 768px) {
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 130px;
+        }
+
+        @media (min-width: 768px) {
+            .form-group textarea {
+                height: 140px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-bottom {
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile Navigation Overlay */
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                text-align: center;
+                gap: 1.5rem;
+                border-top: 1px solid var(--gray-light);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <img src="head.png" alt="Burbach Haustechnik Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Startseite</a></li>
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#reviews">Referenzen</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menü öffnen">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero-Bereich -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-certificate"></i> Meisterbetrieb für Gebäudetechnik
+                </div>
+                <h1>Präzise Haustechnik & Sanitärkompetenz</h1>
+                <p>Ihr zertifizierter Meisterbetrieb in Höhr-Grenzhausen für zukunftsfähige Sanitärinstallationen, effiziente Heizsysteme und moderne Klimatechnik.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Projekt anfragen <i class="fas fa-arrow-right"></i></a>
+                    <a href="#services" class="btn btn-outline">Leistungen ansehen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar-wrapper">
+        <div class="container">
+            <div class="trust-bar">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Meisterqualität</h3>
+                        <p>Höchste Standards bei allen Installationen</p>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Zuverlässig & Schnell</h3>
+                        <p>Termingerechte und saubere Ausführung</p>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Vor Ort in Region</h3>
+                        <p>Direkt aus 56203 Höhr-Grenzhausen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leistungen-Bereich -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span>Unsere Expertise</span>
+                <h2>Professionelle Haustechnik-Dienstleistungen</h2>
+                <p>Wir bieten Ihnen maßgeschneiderte Lösungen und handwerkliche Perfektion aus einer Hand.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-faucet-drip"></i></div>
+                    <h3>Wasserinstallationen</h3>
+                    <p>Moderne Trinkwasser- und Sanitärinstallationen für Neubau, Umbau und Reparaturen.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Trinkwasserhygiene & Filtertechnik</li>
+                        <li><i class="fas fa-check"></i> Armaturen- und Sanitärmontage</li>
+                        <li><i class="fas fa-check"></i> Rohrleitungsbau & Dichtheitsprüfung</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-fire"></i></div>
+                    <h3>Heizungstechnik</h3>
+                    <p>Effiziente Wärmelösungen, die Energie sparen und die Umwelt schonen.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Wärmepumpen & Brennwerttechnik</li>
+                        <li><i class="fas fa-check"></i> Heizungswartung & Optimierung</li>
+                        <li><i class="fas fa-check"></i> Fußbodenheizung & Heizkörper</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
+                    <h3>Kanalisation & Abwasser</h3>
+                    <p>Sichere Ableitung, Dichtheitsprüfung und professionelle Rohrreinigung.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Kanalisationsarbeiten & Erneuerung</li>
+                        <li><i class="fas fa-check"></i> Abwasserleitungsprüfung</li>
+                        <li><i class="fas fa-check"></i> Beseitigung von Rohrverstopfungen</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-snowflake"></i></div>
+                    <h3>Klimaanlagen</h3>
+                    <p>Angenehme Raumtemperaturen und präzise Temperaturregelung im Gebäude.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Planung & Montage von Split-Geräten</li>
+                        <li><i class="fas fa-check"></i> Instandhaltung & Service</li>
+                        <li><i class="fas fa-check"></i> Energieeffiziente Kühlkonzepte</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-wind"></i></div>
+                    <h3>Ventilation & Lüftung</h3>
+                    <p>Gesundes Raumklima durch kontrollierte Wohnraumlüftungssysteme.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Lüftungsanlagen mit Wärmerückgewinnung</li>
+                        <li><i class="fas fa-check"></i> Schimmelprävention & Luftfilterung</li>
+                        <li><i class="fas fa-check"></i> Wartung & Filterwechsel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Renovierungen & Sanierungen</h3>
+                    <p>Komplettsanierungen von Bädern und Hausinstallationen nahtlos koordiniert.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Komplettbadsanierung aus einer Hand</li>
+                        <li><i class="fas fa-check"></i> Altbausanierung technischer Anlagen</li>
+                        <li><i class="fas fa-check"></i> Koordinierte Handwerkerleistungen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Uns-Bereich -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span>Über Burbach Haustechnik</span>
+                    <h2>Ihr verlässlicher Partner vor Ort in Höhr-Grenzhausen</h2>
+                    <p>Als etablierter Handwerksbetrieb in 56203 Höhr-Grenzhausen stehen wir für technische Präzision, termingerechte Abwicklung und langlebige Installationen. Wir begleiten private Bauherren, Hausverwaltungen und Gewerbekunden kompetent bei jedem Vorhaben.</p>
+                    <p>Unser Anspruch ist es, modernste Technik mit solidem Handwerk zu verbinden – für maximale Effizienz und Sicherheit in Ihrem Gebäude.</p>
+                    <div class="about-features">
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i> Fachkundige Beratung
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i> Transparente Kosten
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i> Saubere Ausführung
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i> Modernste Technik
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn" style="margin-top: 1rem;">Jetzt beraten lassen</a>
+                </div>
+                <div class="about-image-wrapper">
+                    <div class="about-image"></div>
+                    <div class="experience-badge">
+                        <h4>100%</h4>
+                        <p>Einsatz & Qualität</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bewertungen-Bereich -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span>Kundenstimmen</span>
+                <h2>Was unsere Kunden über uns sagen</h2>
+                <p>Erfahren Sie, warum unsere Auftraggeber auf unsere Arbeit vertrauen.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Burbach Haustechnik hat bei uns eine komplett neue Heizungsanlage installiert. Die Beratung war erstklassig und die Ausführung lief absolut reibungslos und sauber ab. Sehr zu empfehlen!"</p>
+                    </div>
+                    <div class="reviewer-profile">
+                        <div class="reviewer-avatar">M</div>
+                        <div class="reviewer-info">
+                            <h4>Markus Weber</h4>
+                            <span>Hausbesitzer in Höhr-Grenzhausen</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Schnelle und kompetente Hilfe bei einem Rohrleitungsschaden im Keller. Sehr fairer Monteur, transparente Abrechnung und äußerst professionelles Vorgehen."</p>
+                    </div>
+                    <div class="reviewer-profile">
+                        <div class="reviewer-avatar">S</div>
+                        <div class="reviewer-info">
+                            <h4>Sabine Klein</h4>
+                            <span>Kundin aus der Region</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Die neue Klimaanlage für unser Bürogebäude wurde hervorragend geplant und termingerecht installiert. Tolle Arbeit und sehr angenehmer Service!"</p>
+                    </div>
+                    <div class="reviewer-profile">
+                        <div class="reviewer-avatar">T</div>
+                        <div class="reviewer-info">
+                            <h4>Thomas Becker</h4>
+                            <span>Gewerbekunde</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt-Bereich -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span>Kontakt</span>
+                <h2>Sprechen Sie uns an</h2>
+                <p>Wir freuen uns auf Ihre Anfrage und besprechen Ihr Projekt gerne im persönlichen Gespräch.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info-side">
+                    <div>
+                        <h3>Burbach Haustechnik</h3>
+                        <p>Ihr zuverlässiger Fachbetrieb in Höhr-Grenzhausen für Sanitär, Heizung und Klimatechnik.</p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Standort</h5>
+                                <p>56203 Höhr-Grenzhausen<br>Deutschland</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h5>Telefon</h5>
+                                <p>+49 (0) 2624 000000</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>E-Mail</h5>
+                                <p>info@burbach-haustechnik.de</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 2rem;">
+                        <span>Geschäftszeiten: Montag bis Freitag von 07:30 bis 17:00 Uhr</span>
+                    </div>
+                </div>
+                <div class="contact-form-side">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Ihr Name *</label>
+                                <input type="text" id="name" placeholder="Max Mustermann" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefonnummer</label>
+                                <input type="tel" id="phone" placeholder="+49 ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail-Adresse *</label>
+                            <input type="email" id="email" placeholder="beispiel@domain.de" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceSelect">Gewünschte Leistung</label>
+                            <select id="serviceSelect">
+                                <option value="wasser">Wasserinstallationen</option>
+                                <option value="heizung">Heizung</option>
+                                <option value="kanal">Kanalisation</option>
+                                <option value="klima">Klimaanlagen</option>
+                                <option value="ventilation">Ventilation & Lüftung</option>
+                                <option value="renovierung">Renovierungen & Sanierungen</option>
+                                <option value="sonstiges">Sonstiges / Allgemein</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht *</label>
+                            <textarea id="message" placeholder="Beschreiben Sie kurz Ihr Anliegen..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; justify-content: center;">Nachricht absenden <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="head.png" alt="Burbach Haustechnik Logo">
+                </div>
+                <div style="color: #94a3b8; font-size: 0.95rem;">
+                    Ihr Fachbetrieb in 56203 Höhr-Grenzhausen
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Burbach Haustechnik, Höhr-Grenzhausen. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Sticky Header Effect on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Advanced Contact Form Handler with Feedback
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Vielen Dank, ${name}! Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns schnellstmöglich mit Ihnen in Verbindung setzen.`);
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
